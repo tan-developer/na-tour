@@ -5,13 +5,36 @@
     padding: 0;
     box-sizing: inherit;
 }
-
+::selection {
+    background-color: $color-primary;
+    color: $color-white;
+    box-shadow: 0px 0px 64px -4px rgba($color-black ,.64);
+}
 html {
     // This defines what 1rem is
     font-size: 62.5%;
     scroll-behavior: smooth;
+    
+
+    @include respond (tab-land) { // < 1200px ?
+        font-size: 56.25%; // 1rem = 9px
+    }
+     
+    @include respond (tab-port) { // < 900px
+        font-size: 50%; // 1rem = 8px
+    }
+
+    @include respond (big-desktop) { // > 1800px
+        font-size: 75%; // 1 rem = 12px
+    }
+
 }
 
 body {
     box-sizing: border-box;
+    padding: 3rem;
+    @include respond (tab-port) {
+        padding: 0;
+    }
+
 }
